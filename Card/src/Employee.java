@@ -9,9 +9,8 @@ public class Employee extends Card implements Permanent{
 	int hourlyPayment;
 	int yearsOfEmployment;
 	
-	public Employee(String firstName, String lastName, int pinCode){
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Employee(String fullName, int pinCode){
+		super.setFullName(fullName);
 		this.pinCode = pinCode;	
 	}
 	

@@ -2,16 +2,18 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
-public class Guest extends Card implements Permanent{
+public class Guest extends Card{
 	
 	GregorianCalendar suspendCard;
 
+	public Guest(){
+		this.setFullName("Guest");
+		this.setPinCode(pinCode);
+	}
 	
-	
-	public Guest(String firstName, String lastName, int pinCode){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.pinCode = 9999;
+	public Guest(String fullName, int pinCode){
+		super.setFullName(fullName);
+		this.setPinCode(pinCode);
 		
 	}
 	public boolean isGuestSuspended(){

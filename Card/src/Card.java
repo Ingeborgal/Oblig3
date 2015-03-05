@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class Card {
+public abstract class Card implements Comparable<Card> {
 	
 	String lastName;
 	String firstName;
@@ -12,16 +12,19 @@ public abstract class Card {
 	
 	public Card(){}
 	
-	public Card(String firstName, String lastName, int pinCode){
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public Card(String fullName, int pinCode){
+		this.fullName = fullName;
 		this.pinCode = pinCode;
 		this.cardSuspended = false;
 		this.accessCode = false;
 	}
 
+	
+	
+	
 	public String getName(){
-		return firstName + " " + lastName;
+		//String fullName = firstName + " " + lastName;
+		return fullName;
 
 	}
 
@@ -45,10 +48,13 @@ public abstract class Card {
 
 
 	public String toString(){
-		return "Name: " + getName() + " Pin code: " + getPin() + " Suspended: " + isSuspended();
+		return "Name: " + setFullName(fullName) + " Pin code: " + getPin() + " Suspended: " + isSuspended();
 
 	}
-
+	
+	public void setPinCode(int pinCode){
+		this.pinCode = pinCode;
+	}
 	private int getPin() {
 		return pinCode;
 	}
@@ -56,7 +62,7 @@ public abstract class Card {
 	abstract boolean checkPIN(int pin);
 	
 	public String setFirstName(String firstName){
-		return this.firstName;
+		return this.firstName = firstName;
 	}
 	
 	public String getFirstName() {
@@ -64,7 +70,7 @@ public abstract class Card {
 	}
 	
 	public String setLastName(String lastName) {
-		return this.lastName;
+		return this.lastName = lastName;
 	}
 	
 	public String getLastName() {
@@ -72,7 +78,7 @@ public abstract class Card {
 	}
 	
 	public String setFullName(String fullName) {
-		return this.fullName;
+		return this.fullName = fullName;
 	}
 	
 	public String getFullName() {
