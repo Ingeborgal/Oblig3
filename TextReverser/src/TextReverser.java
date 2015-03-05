@@ -5,27 +5,32 @@ public class TextReverser {
 
 	static int teller;
 	public static void main(String[] args) {
-		
+
 		System.out.println("Skriv et ord: ");
 		Scanner input = new Scanner(System.in);
 		String ord = input.next();
-		
-		reverse(ord);
-		
+
 		teller = ord.length();
-		
-		System.out.println("Ordet reversert er: " + reverse(ord));
-		
-		System.out.println("Antall bokstaver i ordet: " + teller);
+
+		System.out.println("Ordet reversert er: ");
+
+		reverse(ord);
 
 	}
 
-	public static String reverse(String text){
-		
-		if((null == text) || (text.length() <= 1)){
-			return text;
+	public static void reverse(String text){
+		reverse(text, text.length()-1);
+
+	}
+
+	public static void reverse(String text, int last){
+		if(last >= 0){
+			System.out.print(text.charAt(last));
+
+			reverse(text, last -1);
 		}
-		
-		return reverse(text.substring(1)) + text.charAt(0);
+		else{
+			System.out.println("\nAntall bokstaver i ordet: " + teller);
+		}
 	}
 }
