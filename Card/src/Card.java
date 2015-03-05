@@ -1,39 +1,57 @@
+import java.util.Scanner;
+
 abstract class Card {
 
+	
+	
 	String lastName;
 	String firstName;
 	int pinCode;
 	int cardNumber;
 	boolean accessCode;
-	boolean cardSuspended = false;
+	boolean cardSuspended;
+	
+	public Card(){}
+	
+	public Card(String firstName, String lastName, int pinCode){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.pinCode = pinCode;
+		this.cardSuspended = false;
+		this.accessCode = false;
+	}
 
 	public String getName(){
 		return firstName + " " + lastName;
 
 	}
 
-	public int setCardNumber(){
-		cardNumber = (int) (Math.random()*10000);
-
-		return cardNumber;
+	public void setCardNumber(int number){
+		cardNumber = number;
 
 	}
 
 	public boolean isSuspended(){
-		if (cardSuspended = true){
-			return true;
+		return cardSuspended;
 
-		}else{
+	}
+	public boolean suspendCard(){
+		if(isSuspended() == true){
+			return true;
+		}
+		else{
 			return false;
 		}
-
-
 	}
 
 
 	public String toString(){
-		return null;
+		return "Name: " + getName() + "Pin code" + getPin() + "Suspended: " + isSuspended();
 
+	}
+
+	private int getPin() {
+		return pinCode;
 	}
 
 	abstract boolean checkPIN(int pin);
