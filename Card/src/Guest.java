@@ -2,7 +2,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
-public class Guest extends Card{
+public class Guest extends Card implements Permanent{
 	
 	GregorianCalendar suspendCard;
 
@@ -27,5 +27,4 @@ public class Guest extends Card{
 			return false;
 		}
 	}
-
 }

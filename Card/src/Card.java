@@ -8,6 +8,7 @@ public abstract class Card {
 	int cardNumber;
 	boolean accessCode;
 	boolean cardSuspended;
+	private String fullName;
 	
 	public Card(){}
 	
@@ -53,6 +54,48 @@ public abstract class Card {
 	}
 
 	abstract boolean checkPIN(int pin);
-
+	
+	public String setFirstName(String firstName){
+		return this.firstName;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String setLastName(String lastName) {
+		return this.lastName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String setFullName(String fullName) {
+		return this.fullName;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	
+	public int compareTo(Card card) {
+		if(card == null){
+			return 0;
+		}
+		if(this.getLastName().compareTo(card.getLastName()) < 0){
+			return -1;
+		}
+		if(this.getLastName().compareTo(card.getLastName()) > 0){
+			return 1;
+		}
+		if(this.getFirstName().compareTo(card.getFirstName()) < 0){
+			return -1;
+		}
+		if(this.getFirstName().compareTo(card.getFirstName()) > 0){
+			return 1;
+		}
+		return 0;
+	}
 
 }

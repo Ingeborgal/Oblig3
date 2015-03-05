@@ -3,9 +3,11 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 
-public class Employee extends Card{
+public class Employee extends Card implements Permanent{
 
 	public Scanner scan = new Scanner(System.in);
+	int hourlyPayment;
+	int yearsOfEmployment;
 	
 	public Employee(String firstName, String lastName, int pinCode){
 		this.firstName = firstName;
@@ -13,7 +15,7 @@ public class Employee extends Card{
 		this.pinCode = pinCode;	
 	}
 	
-	@SuppressWarnings("static-access")
+	
 	public void accessTime(){
 		GregorianCalendar time = new GregorianCalendar();
 		if(time.HOUR_OF_DAY < 7 || time.HOUR_OF_DAY > 17){
@@ -29,5 +31,61 @@ public class Employee extends Card{
 		} else{
 			return false;
 		}
+	}
+
+
+	@Override
+	public String setFirstName(String firstName) {
+		
+		return super.setFirstName(firstName);
+	}
+
+
+	@Override
+	public String getFirstName() {
+		
+		return super.getFirstName();
+	}
+
+
+	@Override
+	public String setLastName(String lastName) {
+		
+		return super.setLastName(lastName);
+	}
+
+
+	@Override
+	public String getLastName() {
+		
+		return super.getLastName();
+	}
+
+
+	@Override
+	public String setFullName(String fullName) {
+		
+		return super.setFullName(fullName);
+	}
+
+
+	@Override
+	public String getFullName() {
+		
+		return super.getFullName();
+	}
+
+
+	@Override
+	public double calculateCredit() {
+	
+		return hourlyPayment * CONSTANT;
+	}
+
+
+	@Override
+	public double calculateBonus() {
+	
+		return yearsOfEmployment * CONSTANT;
 	}
 }
