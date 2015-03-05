@@ -3,15 +3,20 @@ import java.util.GregorianCalendar;
 
 
 public class Guest extends Card{
-
-	int pinCode = 9999;
+	
 	GregorianCalendar suspendCard;
 
-	public Guest(String firstName, String lastName){
+	
+	
+	public Guest(String firstName, String lastName, int pinCode){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.pinCode = 9999;
-		suspendCard.add(suspendCard.DAY_OF_YEAR, 7);	
+		
+	}
+	public boolean isGuestSuspended(){
+	suspendCard.add(suspendCard.DAY_OF_YEAR, 7);
+	return cardSuspended;
 	}
 
 	@Override

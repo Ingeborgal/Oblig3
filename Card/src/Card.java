@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-abstract class Card {
-
-	
+public abstract class Card {
 	
 	String lastName;
 	String firstName;
@@ -46,7 +44,7 @@ abstract class Card {
 
 
 	public String toString(){
-		return "Name: " + getName() + "Pin code" + getPin() + "Suspended: " + isSuspended();
+		return "Name: " + getName() + " Pin code: " + getPin() + " Suspended: " + isSuspended();
 
 	}
 
