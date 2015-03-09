@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
@@ -27,6 +26,15 @@ public class Guest extends Card{
 			return true;
 		} else{
 			return false;
+		}
+	}
+	
+	@Override
+	public int compareTo(Card card) {
+		if(this.getFullName().compareTo(card.getFullName()) != 0){
+			return this.getFullName().compareTo(card.getFullName());
+		}else{
+			return this.getFirstName().compareTo(card.getFirstName());
 		}
 	}
 }

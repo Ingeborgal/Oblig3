@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class Employee extends Card implements Permanent{
 	
 	public Employee(String fullName, int pinCode){
 		super.setFullName(fullName);
-		this.pinCode = pinCode;	
+		super.pinCode = pinCode;	
 	}
 	
 	
@@ -86,5 +85,14 @@ public class Employee extends Card implements Permanent{
 	public double calculateBonus() {
 	
 		return yearsOfEmployment * CONSTANT;
+	}
+	
+	@Override
+	public int compareTo(Card card) {
+		if(this.getFullName().compareTo(card.getFullName()) != 0){
+			return this.getFullName().compareTo(card.getFullName());
+		}else{
+			return this.getFirstName().compareTo(card.getFirstName());
+		}
 	}
 }

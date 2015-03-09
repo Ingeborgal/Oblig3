@@ -1,6 +1,6 @@
-import java.util.Scanner;
 
-public abstract class Card implements Comparable<Card> {
+
+public abstract class Card implements Comparable<Card>, Cloneable {
 	
 	String lastName;
 	String firstName;
@@ -19,11 +19,7 @@ public abstract class Card implements Comparable<Card> {
 		this.accessCode = false;
 	}
 
-	
-	
-	
 	public String getName(){
-		//String fullName = firstName + " " + lastName;
 		return fullName;
 
 	}
@@ -85,23 +81,18 @@ public abstract class Card implements Comparable<Card> {
 		return fullName;
 	}
 	
+	@Override
 	public int compareTo(Card card) {
-		if(card == null){
-			return 0;
+		if(this.getFullName().compareTo(card.getFullName()) != 0){
+			return this.getFullName().compareTo(card.getFullName());
+		}else{
+			return this.getFirstName().compareTo(card.getFirstName());
 		}
-		if(this.getLastName().compareTo(card.getLastName()) < 0){
-			return -1;
-		}
-		if(this.getLastName().compareTo(card.getLastName()) > 0){
-			return 1;
-		}
-		if(this.getFirstName().compareTo(card.getFirstName()) < 0){
-			return -1;
-		}
-		if(this.getFirstName().compareTo(card.getFirstName()) > 0){
-			return 1;
-		}
-		return 0;
 	}
-
+	
+	public static Card cloneCard(Card card) throws CloneNotSupportedException {
+        
+        return (Card) card.clone();
+    }
 }
+

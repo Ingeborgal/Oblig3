@@ -1,17 +1,9 @@
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 
 public class CardTest{
-
-
-
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		
 		ArrayList<Card> reg = new ArrayList<Card>();
 		
@@ -21,21 +13,15 @@ public class CardTest{
 		
 		Card gue1 = new Guest("Marit Olsen", 9999);
 		Card gue2 = new Guest("Lars Larsen", 9999);
-		
-		
 	
-		reg.sort(null);
-		
 		reg.add(emp1);
 		reg.add(emp2);
 		reg.add(gue1);
-		reg.add(gue2);        
-		
-		System.out.println(reg);
-		
-		
-		for (int i = 0; i < reg.size(); i++){
+		reg.add(gue2); 
 			
+		Collections.sort(reg);
+	
+		for (int i = 0; i < reg.size(); i++){
 			Card card = reg.get(i);
 			
 			
@@ -43,12 +29,10 @@ public class CardTest{
 			System.out.println("\nTest av kort med kode: 1234 er " + (card.checkPIN(1234) ? "Gyldig" : "Ugyldig"));
 			System.out.println("\nTest av kort med kode: 9999 er " + (card.checkPIN(9999) ? "Gyldig" : "Ugyldig"));
 			System.out.println("\nTest av kort med kode: 2356 er " + (card.checkPIN(2356) ? "Gyldig" : "Ugyldig") + "\n\n");
-			
-			
-		
-		
+
 		}
 		
-	
+		System.out.println("Clone of employee 1: " + Card.cloneCard(emp1) + "\n");
+
 	}
 }

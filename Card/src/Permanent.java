@@ -1,4 +1,3 @@
-
 public interface Permanent{
 
 	public String setFirstName(String firstName);
@@ -18,6 +17,5 @@ public interface Permanent{
 	public double calculateBonus();
 	
 	public static final int CONSTANT = 2;
-	
-	
+
 }
